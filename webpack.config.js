@@ -30,4 +30,9 @@ export default {
     new HtmlWebpackPlugin({ template: 'index.html' }),
     new MiniCssExtractPlugin(),
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve('src'),
+    },
+  },
 };
