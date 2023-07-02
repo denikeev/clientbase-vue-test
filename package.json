@@ -1,0 +1,26 @@
+{
+  "name": "clientbase-frontend-test",
+  "version": "1.0.0",
+  "description": "cb vue test task ",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx webpack serve",
+    "build": "NODE_ENV=production npx webpack"
+  },
+  "author": "denikeev",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.7.14"
+  },
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "postcss-loader": "^7.3.3",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}
