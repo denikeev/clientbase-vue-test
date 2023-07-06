@@ -2,6 +2,7 @@ import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { VueLoaderPlugin } from 'vue-loader';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -20,6 +21,10 @@ export default {
           'postcss-loader',
         ],
       },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
     ],
   },
   output: {
@@ -29,10 +34,12 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({ template: 'index.html' }),
     new MiniCssExtractPlugin(),
+    new VueLoaderPlugin(),
   ],
   resolve: {
     alias: {
       '@': path.resolve('src'),
+      'vue': 'vue/dist/vue.esm.js',
     },
   },
 };

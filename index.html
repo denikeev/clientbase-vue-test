@@ -3,11 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script>
-      globalThis.whenDataLoaded = fetch('/data/')
-          .then(response => response.json())
-          .then(json => json);
-    </script>
   </head>
 
   <body>
@@ -25,7 +20,7 @@
       </div>
     </div>
 
-    <div class="vue-test"></div>
+    <div id="vue-test"></div>
 
     <!-- Пример строки -->
 
