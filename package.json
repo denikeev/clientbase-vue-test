@@ -11,6 +11,7 @@
   "author": "denikeev",
   "license": "ISC",
   "dependencies": {
+    "lodash": "^4.17.21",
     "pinia": "2.0.36",
     "vue": "^2.7.14"
   },
