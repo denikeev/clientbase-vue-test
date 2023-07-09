@@ -1,9 +1,20 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import cars from './../../data/cars-1.json';
 
 export const useCarsStore = defineStore('cars', () => {
-  const carsData = ref(cars);
+  const carsData = ref([]);
+  const isCarsLoaded = ref(false);
 
-  return { carsData };
+  function fetchCars() {
+    import('../../data/cars-1.json')
+      .then((data) => {
+        carsData.value.push(...data.default);
+        isCarsLoaded.value = true;
+      })
+      .catch(() => {
+        isCarsLoaded.value = false;
+      });
+  }
+
+  return { carsData, fetchCars, isCarsLoaded };
 });

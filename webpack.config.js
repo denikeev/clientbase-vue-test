@@ -25,6 +25,10 @@ export default {
         test: /\.vue$/,
         loader: 'vue-loader'
       },
+      {
+        test: /\.gif/,
+        type: 'asset/resource'
+      },
     ],
   },
   output: {

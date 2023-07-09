@@ -1,8 +1,13 @@
 <script setup>
+  import { onMounted } from 'vue';
   import { useCarsStore } from '@/stores/cars';
   import Car from './components/Car.vue';
+  
+  const { carsData, fetchCars, isCarsLoaded } = useCarsStore();
 
-  const { carsData } = useCarsStore();
+  onMounted(async () => {
+    await fetchCars();
+  });
 </script>
 
 <template>
@@ -18,11 +23,14 @@
       <div class="table__cell table__cell--head">Год выпуска</div>
       <div class="table__cell table__cell--head">Производство</div>
     </div>
-    <Car 
-      v-for="car in carsData"
-      :key="car.id"
-      v-bind:car="car"
-      v-bind:key="car.id"
-    ></Car>
+    <template v-if="isCarsLoaded">
+      <Car 
+        v-for="car in carsData"
+        :key="car.id"
+        v-bind:car="car"
+        v-bind:key="car.id"
+      ></Car>
+    </template>
+    <img v-else src="./preloader.gif" width="64" height="64" alt="Загрузка..." />
   </div>
 </template>
